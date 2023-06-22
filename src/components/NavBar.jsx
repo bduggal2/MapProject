@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Team from "./Team";
 
 const NavBar = () => {
   return (
@@ -204,7 +205,7 @@ const NavBar = () => {
         >
           <div className="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
             <h3 className="font-bold text-gray-800 dark:text-white">
-              Offcanvas title
+             Meet Our Team
             </h3>
             <button
               type="button"
@@ -228,10 +229,11 @@ const NavBar = () => {
             </button>
           </div>
           <div className="p-4">
-            <p className="text-gray-800 dark:text-gray-400">
+            {/* <p className="text-gray-800 dark:text-gray-400">
               Put Filters here... In real life you can have the elements you
               have chosen. Like, text, images, lists, etc.
-            </p>
+            </p> */}
+            <Team/>
           </div>
         </div>
         {/* End Offcanvas */}

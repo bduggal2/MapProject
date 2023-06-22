@@ -4,6 +4,7 @@ import OnBoardingFeatures from "./components/OnBoardingFeatures";
 import NavBar from "./components/NavBar";
 import Map from "./components/Map";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import("preline");
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<OnBoardingFeatures />} />
           <Route path="/map" element={<Map />} />
         </Routes>
+
       </BrowserRouter>
     </>
   );
