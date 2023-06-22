@@ -8,7 +8,7 @@ const Map = () => {
         <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 mt-4">
           {/* Grid */}
           <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center" >
-            <div className="lg:col-span-2 -translate-y-12">
+            <div className="lg:col-span-2 lg:-translate-y-12">
               <h1 className="block text-2xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
               Filter
               </h1>
@@ -57,12 +57,12 @@ const Map = () => {
                     type="text"
                     id="hero-input"
                     name="hero-input"
-                    className="py-3 px-2 block w-full xl:min-w-[15rem] border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                    className="py-3 px-2 block w-full xl:min-w-[15rem] border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-green-500 focus:ring-green-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                     placeholder="Enter work email"
                   />
                 </div>
                 <a
-                  className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-1 px-3 dark:focus:ring-offset-gray-800"
+                  className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-green-600 hover:bg-green-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-white transition py-1 px-3 dark:focus:ring-offset-gray-800"
                   href="#"
                 >
                   Request demo
