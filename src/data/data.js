@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 
  export const parkData = {
     nhits: 216,
@@ -15199,3 +15199,13 @@
       }
     ]
   }
+
+  const Server_URL= 'https://opendata.vancouver.ca/api/records/1.0/search/?dataset=parks-facilities&q=&rows=633&facet=facilitytype'
+
+  export const getFacilities = async () => {
+    try {
+       return await axios.get(`${Server_URL}`);
+    } catch (error) {
+       console.log('Error getting facility data', error)
+    }
+   }

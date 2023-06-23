@@ -1,13 +1,13 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { parkData } from "../data/data";
+import { parkData, getFacilities } from "../data/data";
 import { useMap } from "../hooks/CustomHooks";
 import { useState, useEffect } from "react";
 
 const Map = ({ washroomSelected }) => {
   const { position } = useMap();
   const [parks, setParks] = useState(parkData.records);
-
+  const [facilitiesData, setFacilities] = useState([])
   const [washroomParks, setWashroomParks] = useState(parks.filter((park) => park.fields.washrooms === "Y"));
 
   const filterByWashroom = () => {
@@ -15,6 +15,16 @@ const Map = ({ washroomSelected }) => {
     setParks(washroomParks);
   };
 
+  useEffect(()=>{
+    getAllFacilities()
+  },[])
+
+  const getAllFacilities = async () => {
+    let res = await getFacilities();
+    setFacilities(res.data.records)
+    console.log(res.data.records);
+  }
+// side effect handling when filters are selected
   useEffect(() => {
     washroomSelected ? filterByWashroom():setParks(parkData.records);
   }, [washroomSelected]);
