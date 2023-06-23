@@ -11,27 +11,18 @@ import { useState, useEffect } from "react";
 const Map = ({ washroomSelected, facility, dogBtn }) => {
   const { position } = useMap();
   const [parks, setParks] = useState(parkData.records);
-  const [facilitiesParkData, setFacilitiesParkData] = useState([]);
+  // const [facilitiesParkData, setFacilitiesParkData] = useState([]);
   const [washroomParks, setWashroomParks] = useState(
     parks.filter((park) => park.fields.washrooms === "Y")
   );
 
   const filterByWashroom = () => {
-    // setWashroomParks(parks.filter((park) => park.fields.washrooms === "Y"));
     setParks(washroomParks);
   };
 
-
-  // TODO add args later: pass prop to use as query
-
-  // useEffect(()=>{
-  //   getFinalFilterdResult();
-
-  // },[facilitiesParkData])
-
   const getFilterdFacilities = async (query) => {
     let filteredFacilityParks = await getFilteredFacilitiesParks(query);
-    setFacilitiesParkData(filteredFacilityParks.data.records);
+    // setFacilitiesParkData(filteredFacilityParks.data.records);
     console.log(filteredFacilityParks.data.records);
     facility
       ? setParks(
@@ -42,19 +33,6 @@ const Map = ({ washroomSelected, facility, dogBtn }) => {
           )
         )
       : setParks(parkData.records);
-  };
-
-  const getFinalFilterdResult = () => {
-    setParks(
-      parks.filter((p) =>
-        facilitiesParkData.some((f) => p.fields.parkid === f.fields.parkid)
-      )
-    );
-    console.log(
-      parks.filter((p) =>
-        facilitiesParkData.some((f) => f.fields.parkid === p.fields.parkid)
-      )
-    );
   };
 
   // side effect handling when filters are selected
