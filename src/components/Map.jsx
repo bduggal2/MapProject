@@ -1,33 +1,70 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { parkData, getFacilities } from "../data/data";
+import {
+  parkData,
+  getFacilities,
+  getFilteredFacilitiesParks,
+} from "../data/data";
 import { useMap } from "../hooks/CustomHooks";
 import { useState, useEffect } from "react";
 
-const Map = ({ washroomSelected }) => {
+const Map = ({ washroomSelected, facility, dogBtn }) => {
   const { position } = useMap();
   const [parks, setParks] = useState(parkData.records);
-  const [facilitiesData, setFacilities] = useState([])
-  const [washroomParks, setWashroomParks] = useState(parks.filter((park) => park.fields.washrooms === "Y"));
+  const [facilitiesParkData, setFacilitiesParkData] = useState([]);
+  const [washroomParks, setWashroomParks] = useState(
+    parks.filter((park) => park.fields.washrooms === "Y")
+  );
 
   const filterByWashroom = () => {
     // setWashroomParks(parks.filter((park) => park.fields.washrooms === "Y"));
     setParks(washroomParks);
   };
 
-  useEffect(()=>{
-    getAllFacilities()
-  },[])
 
-  const getAllFacilities = async () => {
-    let res = await getFacilities();
-    setFacilities(res.data.records)
-    console.log(res.data.records);
-  }
-// side effect handling when filters are selected
+  // TODO add args later: pass prop to use as query
+
+  // useEffect(()=>{
+  //   getFinalFilterdResult();
+
+  // },[facilitiesParkData])
+
+  const getFilterdFacilities = async (query) => {
+    let filteredFacilityParks = await getFilteredFacilitiesParks(query);
+    setFacilitiesParkData(filteredFacilityParks.data.records);
+    console.log(filteredFacilityParks.data.records);
+    facility
+      ? setParks(
+          parks.filter((p) =>
+            filteredFacilityParks.data.records.some(
+              (f) => f.fields.parkid === p.fields.parkid
+            )
+          )
+        )
+      : setParks(parkData.records);
+  };
+
+  const getFinalFilterdResult = () => {
+    setParks(
+      parks.filter((p) =>
+        facilitiesParkData.some((f) => p.fields.parkid === f.fields.parkid)
+      )
+    );
+    console.log(
+      parks.filter((p) =>
+        facilitiesParkData.some((f) => f.fields.parkid === p.fields.parkid)
+      )
+    );
+  };
+
+  // side effect handling when filters are selected
   useEffect(() => {
-    washroomSelected ? filterByWashroom():setParks(parkData.records);
+    washroomSelected ? filterByWashroom() : setParks(parkData.records);
   }, [washroomSelected]);
+
+  useEffect(() => {
+    getFilterdFacilities(facility);
+  }, [facility]);
 
   return (
     <MapContainer
