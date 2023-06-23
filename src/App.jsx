@@ -13,11 +13,10 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<OnBoardingFeatures />} />
           <Route path="/map" element={<MapPage />} />
-        </Routes> */}
-        <Map/>
+        </Routes>
 
       </BrowserRouter>
     </>

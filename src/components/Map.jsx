@@ -1,26 +1,55 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css"
+import "leaflet/dist/leaflet.css";
+import { parkData } from "../data/data";
 import { useMap } from "../hooks/CustomHooks";
-const Map = () => {
-    const { position } = useMap();
-    return (
-      <MapContainer
-        center={position}
-        zoom={4.5}
-        scrollWheelZoom={true}
-        style={{ minHeight: "100vh", minWidth: "100vw" }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
+import { useState, useEffect } from "react";
+
+const Map = ({ washroomSelected }) => {
+  const { position } = useMap();
+  const [parks, setParks] = useState(parkData.records);
+
+  const [washroomParks, setWashroomParks] = useState(parks.filter((park) => park.fields.washrooms === "Y"));
+
+  const filterByWashroom = () => {
+    // setWashroomParks(parks.filter((park) => park.fields.washrooms === "Y"));
+    setParks(washroomParks);
+  };
+
+  useEffect(() => {
+    washroomSelected ? filterByWashroom():setParks(parkData.records);
+  }, [washroomSelected]);
+
+  return (
+    <MapContainer
+      center={position}
+      zoom={12.5}
+      scrollWheelZoom={false}
+      style={{ minHeight: "100vh", minWidth: "100vw" }}
+    >
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+
+      <Marker position={position}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+      {/* map parkData here */}
+      {parks.map((parkItem) => (
+        <Marker
+          key={parkItem.recordid}
+          position={parkItem.fields.googlemapdest}
+        >
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            {`${parkItem.fields.name}`} <br />
+            {`${parkItem.fields.neighbourhoodname}`}
           </Popup>
         </Marker>
-      </MapContainer>
-    );
-}
+      ))}
+    </MapContainer>
+  );
+};
 
-export default Map
+export default Map;
