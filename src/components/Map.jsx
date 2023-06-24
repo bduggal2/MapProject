@@ -9,23 +9,23 @@ import { useMap } from "../hooks/CustomHooks";
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { useState, useEffect } from "react";
 
-const defaultParkList = [
-  {
-    name: "default",
-    parkid: "420",
-    coordinates: {
-      lat: 49.246292,
-      lng: -123.116226,
-    },
-    fav: true,
-  },
-];
+// const defaultParkList = [
+//   {
+//     name: "Default Park",
+//     parkid: "420",
+//     coordinates: {
+//       lat: 49.246292,
+//       lng: -123.116226,
+//     },
+//     fav: true,
+//   },
+// ];
 
-const Map = ({ washroomSelected, facility }) => {
+const Map = ({ washroomSelected, facility, favList, setFavlist }) => {
   const { position } = useMap();
   const [parks, setParks] = useState([]);
   // const [favPark, toggleFav] = useState(false);
-  const [favList, setFavlist] = useState(defaultParkList);
+  // const [favList, setFavlist] = useState(defaultParkList);
 
   const getFilterdFacilities = async (query) => {
     let filteredFacilityParks = await getFilteredFacilitiesParks(query);
@@ -95,6 +95,7 @@ const Map = ({ washroomSelected, facility }) => {
                   {
                     name: parkItem.fields.name,
                     parkid: parkItem.fields.parkid,
+                    address: `${parkItem.fields.streetnumber} ${parkItem.fields.streetname}`,
                     coordinates: parkItem.fields.googlemapdest,
                     fav: true,
                   },

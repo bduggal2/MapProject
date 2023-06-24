@@ -1,7 +1,7 @@
 import Map from "./Map";
 import { useEffect, useState } from "react";
 
-const MapPage = () => {
+const MapPage = ({favList, setFavlist}) => {
   const [washroomBtnActive, setWashroomBtnActive] = useState(false);
   const [dogBtnActive, toggleDogBtnActive] = useState(false);
   const [tennisBtnActive, toggleTennisBtnActive] = useState(false);
@@ -135,6 +135,8 @@ const MapPage = () => {
               washroomSelected={washroomBtnActive}
               facility={facility}
               dogBtn={dogBtnActive}
+              favList={favList}
+              setFavlist={setFavlist}
             />
           </div>
           {/* End Col */}
