@@ -12,7 +12,7 @@ const OnBoardingFeatures = () => {
           <div className="relative z-10 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
             <div className="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2">
               <h2 className="text-2xl text-gray-800 font-bold sm:text-3xl dark:text-gray-200">
-               Your Ultimate Guide to Nature's Hidden Gems
+                Your Ultimate Guide to Nature's Hidden Gems
               </h2>
               {/* Tab Navs */}
               <nav
@@ -35,7 +35,8 @@ const OnBoardingFeatures = () => {
                         Find Awesome Parks
                       </span>
                       <span className="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-gray-200">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Deleniti?
                       </span>
                     </span>
                   </span>
@@ -56,7 +57,8 @@ const OnBoardingFeatures = () => {
                         Bring Fido
                       </span>
                       <span className="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-gray-200">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, sunt laudantium.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Commodi, sunt laudantium.
                       </span>
                     </span>
                   </span>
@@ -77,7 +79,8 @@ const OnBoardingFeatures = () => {
                         Discover Vancouver
                       </span>
                       <span className="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-gray-200">
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum vero aliquam molestias.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsum vero aliquam molestias.
                       </span>
                     </span>
                   </span>

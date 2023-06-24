@@ -5,8 +5,10 @@ import NavBar from "./components/NavBar";
 import MapPage from "./components/MapPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Map from "./components/Map";
-
+import FavouriteList from "./components/FavouriteList";
 import("preline");
+
+
 
 function App() {
   return (
@@ -16,8 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<OnBoardingFeatures />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/fav" element={<FavouriteList />} />
         </Routes>
-
       </BrowserRouter>
     </>
   );

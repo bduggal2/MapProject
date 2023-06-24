@@ -95,12 +95,12 @@ const NavBar = () => {
                   Map
                 </NavLink>
 
-                <a
+                <NavLink
                   className="font-medium text-gray-500 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
-                  href="#"
+                  to='/fav'
                 >
                   Favourites
-                </a>
+                </NavLink>
                 <a
                   className="font-medium text-gray-500 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
                   href="#"
