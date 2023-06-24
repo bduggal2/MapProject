@@ -24,9 +24,9 @@ const MapPage = () => {
   return (
     <>
       {/* Hero */}
-      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+      <div className="max-w-[85rem] mx-4 px-4 sm:px-6 lg:px-8 mt-4">
         {/* Grid */}
-        <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
+        <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center ml-5">
           <div className="lg:col-span-2 lg:-translate-y-12">
             <h1 className="block text-2xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
               Filter
@@ -130,8 +130,8 @@ const MapPage = () => {
             </div>
           </div>
           {/* End Col */}
-          <div className="lg:col-span-5 mt-10 lg:mt-0">
-            <Map
+          <div className="lg:col-span-5 mt-10 lg:mt-0 overflow-hidden ">
+            <Map className="overflow-hidden w-full"
               washroomSelected={washroomBtnActive}
               facility={facility}
               dogBtn={dogBtnActive}

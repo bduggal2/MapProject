@@ -6,19 +6,26 @@ import {
   getFilteredFacilitiesParks,
 } from "../data/data";
 import { useMap } from "../hooks/CustomHooks";
+import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { useState, useEffect } from "react";
+
+const defaultParkList = [
+  {
+    name: "default",
+    parkid: "420",
+    coordinates: {
+      lat: 49.246292,
+      lng: -123.116226,
+    },
+    fav: true,
+  },
+];
 
 const Map = ({ washroomSelected, facility }) => {
   const { position } = useMap();
   const [parks, setParks] = useState([]);
-  // const [facilitiesParkData, setFacilitiesParkData] = useState([]);
-  // const [washroomParks, setWashroomParks] = useState(
-  //   parks.filter((park) => park.fields.washrooms === "Y")
-  // );
-
-  // const filterByWashroom = () => {
-  //   setParks(washroomParks);
-  // };
+  // const [favPark, toggleFav] = useState(false);
+  const [favList, setFavlist] = useState(defaultParkList);
 
   const getFilterdFacilities = async (query) => {
     let filteredFacilityParks = await getFilteredFacilitiesParks(query);
@@ -35,12 +42,13 @@ const Map = ({ washroomSelected, facility }) => {
       : setParks(parkData.records);
   };
 
-  const getFilteredWashroom =() => {
+  const getFilteredWashroom = () => {
     washroomSelected
-      ? setParks(parkData.records.filter((park) => park.fields.washrooms === "Y"))
+      ? setParks(
+          parkData.records.filter((park) => park.fields.washrooms === "Y")
+        )
       : setParks(parkData.records);
   };
-
 
   // side effect handling when filters are selected
   useEffect(() => {
@@ -50,6 +58,7 @@ const Map = ({ washroomSelected, facility }) => {
   useEffect(() => {
     getFilterdFacilities(facility);
   }, [facility]);
+
 
   return (
     <MapContainer
@@ -76,7 +85,34 @@ const Map = ({ washroomSelected, facility }) => {
         >
           <Popup>
             {`${parkItem.fields.name}`} <br />
-            {`${parkItem.fields.neighbourhoodname}`}
+            {`${parkItem.fields.neighbourhoodname}`} <br />
+            {/* add to favorite list by clicking on icon */}
+            {/* {favPark ? ( */}
+            <MdFavorite
+              onClick={() => {
+               let newList = [
+                  ...favList,
+                  {
+                    name: parkItem.fields.name,
+                    parkid: parkItem.fields.parkid,
+                    coordinates: parkItem.fields.googlemapdest,
+                    fav: true,
+                  },
+                ]
+                const uniqueList = Array.from(new Set(newList));
+                setFavlist(uniqueList);
+                console.log(favList);
+              }}
+              color="#16a34a"
+              className="inline-flex justify-center items-center w-[26px] h-[26px] cursor-pointer"
+            />
+            {/* ) : ( */}
+            {/* <MdOutlineFavoriteBorder
+                onClick={() => toggleFav(true)}
+                color="#16a34a"
+                className="inline-flex justify-center items-center w-[26px] h-[26px]"
+              />
+            )} */}
           </Popup>
         </Marker>
       ))}
