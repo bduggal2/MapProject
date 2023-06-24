@@ -8,25 +8,25 @@ import {
 import { useMap } from "../hooks/CustomHooks";
 import { useState, useEffect } from "react";
 
-const Map = ({ washroomSelected, facility, dogBtn }) => {
+const Map = ({ washroomSelected, facility }) => {
   const { position } = useMap();
-  const [parks, setParks] = useState(parkData.records);
+  const [parks, setParks] = useState([]);
   // const [facilitiesParkData, setFacilitiesParkData] = useState([]);
-  const [washroomParks, setWashroomParks] = useState(
-    parks.filter((park) => park.fields.washrooms === "Y")
-  );
+  // const [washroomParks, setWashroomParks] = useState(
+  //   parks.filter((park) => park.fields.washrooms === "Y")
+  // );
 
-  const filterByWashroom = () => {
-    setParks(washroomParks);
-  };
+  // const filterByWashroom = () => {
+  //   setParks(washroomParks);
+  // };
 
   const getFilterdFacilities = async (query) => {
     let filteredFacilityParks = await getFilteredFacilitiesParks(query);
-    // setFacilitiesParkData(filteredFacilityParks.data.records);
-    console.log(filteredFacilityParks.data.records);
-    facility
+
+    // console.log(filteredFacilityParks.data.records);
+    facility && !washroomSelected
       ? setParks(
-          parks.filter((p) =>
+          parkData.records.filter((p) =>
             filteredFacilityParks.data.records.some(
               (f) => f.fields.parkid === p.fields.parkid
             )
@@ -35,9 +35,16 @@ const Map = ({ washroomSelected, facility, dogBtn }) => {
       : setParks(parkData.records);
   };
 
+  const getFilteredWashroom =() => {
+    washroomSelected
+      ? setParks(parkData.records.filter((park) => park.fields.washrooms === "Y"))
+      : setParks(parkData.records);
+  };
+
+
   // side effect handling when filters are selected
   useEffect(() => {
-    washroomSelected ? filterByWashroom() : setParks(parkData.records);
+    getFilteredWashroom();
   }, [washroomSelected]);
 
   useEffect(() => {

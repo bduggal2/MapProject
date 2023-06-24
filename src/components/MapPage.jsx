@@ -4,24 +4,22 @@ import { useEffect, useState } from "react";
 const MapPage = () => {
   const [washroomBtnActive, setWashroomBtnActive] = useState(false);
   const [dogBtnActive, toggleDogBtnActive] = useState(false);
+  const [tennisBtnActive, toggleTennisBtnActive] = useState(false);
+  const [bballBtnActive, toggleBBallBtnActive] = useState(false);
+
   const [facility, setFacility] = useState("");
 
   useEffect(() => {
-    // dogBtnActive ? setFacility("Dogs Off-Leash Areas") : setFacility("");
-
     if (dogBtnActive) {
       setFacility("Dogs Off-Leash Areas");
-      setWashroomBtnActive(false);
+    } else if (tennisBtnActive) {
+      setFacility("Tennis Courts");
+    } else if (bballBtnActive) {
+      setFacility("Basketball Courts");
     } else {
       setFacility("");
     }
-  }, [dogBtnActive]);
-  
-  useEffect(() => {
-    if (washroomBtnActive) {
-      toggleDogBtnActive(false);
-    }
-  }, [washroomBtnActive]);
+  }, [dogBtnActive, bballBtnActive, tennisBtnActive]);
 
   return (
     <>
@@ -42,7 +40,14 @@ const MapPage = () => {
 
             <div className="mt-6 lg:mt-12">
               <button
-                onClick={() => setWashroomBtnActive(!washroomBtnActive)}
+                onClick={async (e) => {
+                  e.stopPropagation()
+                  toggleBBallBtnActive(false)
+                  toggleTennisBtnActive(false)
+                  toggleDogBtnActive(false)
+                  setFacility("");
+                  setWashroomBtnActive(!washroomBtnActive);
+                }}
                 className={`${
                   washroomBtnActive
                     ? "bg-slate-400 font-bold"
@@ -52,7 +57,13 @@ const MapPage = () => {
                 Washrooms
               </button>
               <button
-                onClick={() => toggleDogBtnActive(!dogBtnActive)}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  toggleBBallBtnActive(false)
+                  toggleTennisBtnActive(false)
+                  setWashroomBtnActive(false)
+                  toggleDogBtnActive(!dogBtnActive);
+                }}
                 className={`${
                   dogBtnActive
                     ? "bg-slate-400 font-bold"
@@ -61,11 +72,37 @@ const MapPage = () => {
               >
                 Dog Friendly
               </button>
-              <button className="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200">
-                Facility 3
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setWashroomBtnActive(false)
+                  toggleBBallBtnActive(false)
+                  toggleDogBtnActive(false)
+                  toggleTennisBtnActive(!tennisBtnActive);
+                }}
+                className={`${
+                  tennisBtnActive
+                    ? "bg-slate-400 font-bold"
+                    : "bg-gray-100 hover:bg-gray-200"
+                } m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm  text-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200`}
+              >
+                Tennis Courts
               </button>
-              <button className="m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200">
-                Facility 4
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setWashroomBtnActive(false)
+                  toggleTennisBtnActive(false)
+                  toggleDogBtnActive(false)
+                  toggleBBallBtnActive(!bballBtnActive);
+                }}
+                className={`${
+                  bballBtnActive
+                    ? "bg-slate-400 font-bold"
+                    : "bg-gray-100 hover:bg-gray-200"
+                } m-1 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm  text-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200`}
+              >
+                Basketball Courts
               </button>
             </div>
             {/* End Filter Checkbox  */}
