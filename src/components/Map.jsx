@@ -48,10 +48,25 @@ const Map = ({ washroomSelected, facility, favList, setFavlist }) => {
   }, [facility]);
 
   useEffect(() => {
-    let newData = JSON.parse(localStorage.getItem("favList"));
-    newData = [...favList];
-    if (newData) {
-      localStorage.setItem("favList", JSON.stringify(newData));
+    let oldData = JSON.parse(localStorage.getItem("favList"))
+    if (oldData) {
+      const newData = [...favList, ...oldData];
+
+      const uniqueData = newData.reduce((accumulator, current) => {
+        if (!accumulator.find((item) => item.parkid === current.parkid)) {
+          accumulator.push(current);
+        }
+        return accumulator;
+      }, []);
+      // ! removing duplicates from array was a challenge
+      // const uniqueData = [...new Set(newData)];
+
+      //   let uniqueData = newData.filter((element, index) => {
+      //     return newData.indexOf(element) === index;
+      // });
+      localStorage.setItem("favList", JSON.stringify(uniqueData));
+    } else if (favList.length === 1) {
+      localStorage.setItem("favList", JSON.stringify(favList));
     }
   }, [favList]);
 

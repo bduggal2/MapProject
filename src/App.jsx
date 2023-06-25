@@ -33,7 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<OnBoardingFeatures />} />
           <Route path="/map" element={<MapPage favList={favList} setFavlist={setFavlist}/>} />
-          <Route path="/fav" element={<FavouriteList favList={favList} />} />
+          <Route path="/fav" element={<FavouriteList />} />
         </Routes>
       </BrowserRouter>
     </>
