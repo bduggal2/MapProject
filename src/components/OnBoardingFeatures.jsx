@@ -1,8 +1,12 @@
 import { PiDog } from "react-icons/pi";
 import { FaCity } from "react-icons/fa";
 import { HiViewfinderCircle } from "react-icons/hi2";
+import {useNavigate} from "react-router-dom"
+
 
 const OnBoardingFeatures = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* Features */}
@@ -35,8 +39,7 @@ const OnBoardingFeatures = () => {
                         Find Awesome Parks
                       </span>
                       <span className="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-gray-200">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Deleniti?
+                      Your virtual park ranger: Explore the city's parks like a pro using our intuitive maps web app! 
                       </span>
                     </span>
                   </span>
@@ -57,8 +60,7 @@ const OnBoardingFeatures = () => {
                         Bring Fido
                       </span>
                       <span className="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-gray-200">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Commodi, sunt laudantium.
+                      Tail-wagging adventures made easy: Locate washrooms, dog parks, tennis courts and basketball courts.
                       </span>
                     </span>
                   </span>
@@ -79,12 +81,18 @@ const OnBoardingFeatures = () => {
                         Discover Vancouver
                       </span>
                       <span className="block mt-1 text-gray-800 dark:hs-tab-active:text-gray-200 dark:text-gray-200">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ipsum vero aliquam molestias.
+                      Vancouver's parks: Where dreams become picnics and wanderers find solace!
+         
                       </span>
                     </span>
                   </span>
                 </button>
+                <button
+                className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-green-600 hover:bg-green-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-white transition py-1 px-3 mx-2 dark:focus:ring-offset-gray-800"
+                onClick={()=>{navigate("/map")}}
+              >
+              Find Parks
+              </button>
               </nav>
               {/* End Tab Navs */}
             </div>

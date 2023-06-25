@@ -17,10 +17,10 @@ const FavouriteList = () => {
 
   return (
     <>
-      <div className="flex flex-col lg:mx-16">
-        <h2 className="py-2 px-2 my-2 text-left block text-2xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-5xl dark:text-white">
+      <div className="relative mx-4 px-4 sm:px-4 lg:px-8 mt-4 flex flex-col max-w-[85rem]">
+        <p className="py-2 px-2 my-2 text-left block text-2xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-5xl dark:text-white">
           Your favorite parks
-        </h2>
+        </p>
         <div className="-m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">
             <div className="overflow-hidden border rounded-lg">
@@ -92,6 +92,7 @@ const FavouriteList = () => {
         </div>
       </div>
     </>
+  
   );
 };
 

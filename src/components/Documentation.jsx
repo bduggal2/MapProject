@@ -5,10 +5,10 @@ const Documentation = () => {
     <>
  
     <main id="content" role="main">
-      <div className="max-w-7xl mx-auto my-2 min-h-screen bg-white border-x-gray-200 py-10 px-4 sm:px-6 lg:px-8 xl:border-x dark:bg-gray-800 dark:border-x-gray-700">
+      <div className="max-w-[85rem] mx-auto my-2 min-h-screen bg-white border-x-gray-200 py-10 px-4 sm:px-6 lg:px-8 xl:border-x dark:bg-gray-800 dark:border-x-gray-700">
         {/* Page Heading */}
         <header className="max-w-3xl">
-          <p className="mb-2 text-sm font-semibold text-blue-600">
+          <p className="mb-2 text-sm font-semibold text-green-900">
             This project was built using React, Leaflet, Tailwind and Preline-UI.
           </p>
           <h1 className="block text-2xl font-bold text-gray-800 sm:text-3xl dark:text-white">
@@ -19,7 +19,7 @@ const Documentation = () => {
           </p>
           <div className="mt-5 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
             <a
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+              className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-green-600 hover:bg-green-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
               href="https://github.com/bduggal2/MapProject"
               target="_blank"
             >
@@ -36,7 +36,7 @@ const Documentation = () => {
               Get the source code
             </a>
             <a
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 ring-offset-white focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm py-3 px-4 dark:ring-offset-slate-900"
+              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-green-900 hover:text-green-700 focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm py-3 px-4 dark:ring-offset-slate-900"
               href="https://www.linkedin.com/in/simon-chauke-685a9b85/"
             >
               <svg

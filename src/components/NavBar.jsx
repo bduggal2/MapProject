@@ -82,26 +82,26 @@ const NavBar = () => {
               {/* TODO:  fix active link colors when using Router */}
               <NavLink
                 to="/"
-                className="font-medium text-green-600 px-6 sm:py-6 sm:px-0 dark:text-green-500"
+                className="font-medium text-gray-600 px-6 sm:py-6 sm:px-0 dark:text-gray-500"
                 aria-current="page"
               >
                 Home
               </NavLink>
               <NavLink
                 to="/map"
-                className="font-medium text-gray-500 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
+                className="font-medium text-gray-600 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
               >
                 Map
               </NavLink>
 
               <NavLink
-                className="font-medium text-gray-500 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
+                className="font-medium text-gray-600 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
                 to="/fav"
               >
                 Favourites
               </NavLink>
               <NavLink
-                className="font-medium text-gray-500 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
+                className="font-medium text-gray-600 hover:text-gray-400 px-6 sm:py-6 sm:px-0 dark:text-gray-400 dark:hover:text-gray-500"
                 to="/docu"
               >
                 Documentation
