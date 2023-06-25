@@ -24,7 +24,7 @@ const MapPage = ({favList, setFavlist}) => {
   return (
     <>
       {/* Hero */}
-      <div className="max-w-[85rem] mx-4 px-4 sm:px-6 lg:px-8 mt-4">
+      <div className="max-w-[85rem] mx-4 px-4 sm:px-4 lg:px-8 mt-4">
         {/* Grid */}
         <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center ml-5">
           <div className="lg:col-span-2 lg:-translate-y-12">
