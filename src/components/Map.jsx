@@ -1,6 +1,7 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
+// import "leaflet/dist/leaflet.css";
 import ToastAlert from "./ToastAlert";
+import marker from "../assets/marker-icon-2x.png";
 
 import {
   parkData,
@@ -15,6 +16,8 @@ const Map = ({ washroomSelected, facility, favList, setFavlist }) => {
   const { position } = useMap();
   const [parks, setParks] = useState([]);
   const [displayToast, setDisplayToast] = useState(false);
+
+
 
   const getFilterdFacilities = async (query) => {
     let filteredFacilityParks = await getFilteredFacilitiesParks(query);
@@ -83,11 +86,11 @@ const Map = ({ washroomSelected, facility, favList, setFavlist }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <Marker position={position}>
+        {/* <Marker position={position}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
-        </Marker>
+        </Marker> */}
         {/* map parkData here */}
         {parks.map((parkItem) => (
           <Marker
