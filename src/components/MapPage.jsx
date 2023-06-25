@@ -1,5 +1,6 @@
 import Map from "./Map";
 import { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 const MapPage = ({favList, setFavlist}) => {
   const [washroomBtnActive, setWashroomBtnActive] = useState(false);
@@ -8,6 +9,9 @@ const MapPage = ({favList, setFavlist}) => {
   const [bballBtnActive, toggleBBallBtnActive] = useState(false);
 
   const [facility, setFacility] = useState("");
+
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     if (dogBtnActive) {
@@ -29,11 +33,11 @@ const MapPage = ({favList, setFavlist}) => {
         <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center ml-5">
           <div className="lg:col-span-2 lg:-translate-y-12">
             <h1 className="block text-2xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">
-              Filter
+              Filters
             </h1>
             <p className="mt-3 text-lg text-gray-800 dark:text-gray-400">
-              Introducing a new way for your brand to reach the creative
-              community.
+              Introducing a new way for you to explore Vancouver
+              parks.
             </p>
 
             {/* Filter Checkbox */}
@@ -109,28 +113,19 @@ const MapPage = ({favList, setFavlist}) => {
 
             {/* Other Filter */}
             <div className="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
-              <div className="w-full sm:w-auto">
-                <label htmlFor="hero-input" className="sr-only">
-                  Search
-                </label>
-                <input
-                  type="text"
-                  id="hero-input"
-                  name="hero-input"
-                  className="py-3 px-2 block w-full xl:min-w-[15rem] border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-green-500 focus:ring-green-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                  placeholder="Enter work email"
-                />
-              </div>
-              <a
+              <p className="w-full sm:w-auto text-gray-600 font-medium">
+             Click on the map pin to view details and add to your list!
+              </p>
+              <button
                 className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-green-600 hover:bg-green-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-white transition py-1 px-3 dark:focus:ring-offset-gray-800"
-                href="#"
+                onClick={()=>{navigate("/fav")}}
               >
-                Request demo
-              </a>
+              Saved List
+              </button>
             </div>
           </div>
           {/* End Col */}
-          <div className="lg:col-span-5 mt-10 lg:mt-0 overflow-hidden ">
+          <div className="lg:col-span-5 mt-10 lg:mt-0 overflow-hidden">
             <Map className="overflow-hidden w-full"
               washroomSelected={washroomBtnActive}
               facility={facility}

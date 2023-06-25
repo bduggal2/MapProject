@@ -4,7 +4,7 @@ const ToastAlert = ({setDisplayToast}) => {
   return (
     <div
     id="dismiss-toast"
-    className="bg-green-100  border-green-200 absolute lg:top-20 sm:top-10 left-40 hs-removing:translate-x-5 hs-removing:opacity-0 transition duration-300 max-w-xs border rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700"
+    className="bg-green-100  border-green-200 absolute lg:top-20  md:top-15 md:left-8 sm:top-10 left-40 hs-removing:translate-x-5 hs-removing:opacity-0 transition duration-300 max-w-xs border rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700"
     role="alert"
   >
     <div className="flex p-4">
