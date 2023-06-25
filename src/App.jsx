@@ -6,6 +6,7 @@ import MapPage from "./components/MapPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Map from "./components/Map";
 import FavouriteList from "./components/FavouriteList";
+import Documentation from "./components/Documentation";
 import("preline");
 
 const defaultParkList = [
@@ -34,6 +35,8 @@ function App() {
           <Route path="/" element={<OnBoardingFeatures />} />
           <Route path="/map" element={<MapPage favList={favList} setFavlist={setFavlist}/>} />
           <Route path="/fav" element={<FavouriteList />} />
+          <Route path="/docu" element={<Documentation />} />
+
         </Routes>
       </BrowserRouter>
     </>
