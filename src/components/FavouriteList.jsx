@@ -1,6 +1,17 @@
-import React from 'react'
+import { useEffect, useState } from "react";
 
 const FavouriteList = ({favList}) => {
+    const [favListLocal, setFavListLocal] = useState([])
+
+
+    useEffect(() => {
+        const favListLocalTemp = JSON.parse(localStorage.getItem('favList'));
+        if (favListLocalTemp) {
+            setFavListLocal(favListLocalTemp);
+           }
+      }, []);
+
+
   return (
     <>
     <div className="flex flex-col lg:mx-16">
@@ -41,7 +52,7 @@ const FavouriteList = ({favList}) => {
           <tbody>
             {/* table row: map this */}
             {
-                favList.map((item)=>(
+                favListLocal.map((item)=>(
                     <tr className="odd:bg-white even:bg-gray-100 hover:bg-gray-100 dark:odd:bg-gray-800 dark:even:bg-gray-700 dark:hover:bg-gray-700">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
                     {item.name}

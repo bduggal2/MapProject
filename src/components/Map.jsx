@@ -47,9 +47,13 @@ const Map = ({ washroomSelected, facility, favList, setFavlist }) => {
     getFilterdFacilities(facility);
   }, [facility]);
 
-  //   useEffect(()=>{
-  // setDisplayToast(true)
-  //   },[favList])
+  useEffect(() => {
+    let newData = JSON.parse(localStorage.getItem("favList"));
+    newData = [...favList];
+    if (newData) {
+      localStorage.setItem("favList", JSON.stringify(newData));
+    }
+  }, [favList]);
 
   return (
     <>
@@ -112,7 +116,7 @@ const Map = ({ washroomSelected, facility, favList, setFavlist }) => {
           </Marker>
         ))}
       </MapContainer>
-      {displayToast && <ToastAlert setDisplayToast={setDisplayToast}/>}
+      {displayToast && <ToastAlert setDisplayToast={setDisplayToast} />}
     </>
   );
 };
