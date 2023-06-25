@@ -114,7 +114,7 @@ const MapPage = ({favList, setFavlist}) => {
             {/* Other Filter */}
             <div className="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
               <p className="w-full sm:w-auto text-gray-600 font-medium">
-             Click on the map pin to view details and add to your list!
+             Click on the map pin to view details and click on 💚 to add to your list!
               </p>
               <button
                 className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-green-600 hover:bg-green-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-white transition py-1 px-3 dark:focus:ring-offset-gray-800"
