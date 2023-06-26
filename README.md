@@ -4,6 +4,11 @@ Vancouver Parks Explorer
 
 Welcome to the Vancouver Parks Explorer repository! This project is a React.js web application designed to help users explore and discover parks in Vancouver, along with their amenities such as washrooms, tennis courts, and basketball courts. The app offers a user-friendly interface, responsive design, and seamless integration with various libraries and APIs.
 
+Deployed Version
+----------------
+
+The app is deployed on Vercel. You can access it at [Vancouver Parks Explorer](https://map-project-umber.vercel.app/).
+
 Features
 --------
 
