@@ -8,6 +8,11 @@ Deployed Version
 ----------------
 
 The app is deployed on Vercel. You can access it at [Vancouver Parks Explorer](https://map-project-umber.vercel.app/).
+<div style="margin-top: 30px;">
+
+![Vancouver Parks Explorer](parkProject.gif)
+
+</div>
 
 Features
 --------
@@ -57,4 +62,4 @@ This project is licensed under the MIT License. Feel free to use, modify, and di
 
 Let's explore Vancouver's parks together!
 
-![Vancouver Parks Explorer](parkProject.gif)
+
